@@ -1,8 +1,7 @@
 /*import userService from '../common/api/userService';
-import addressService from '../common/api/addressService';
 import { GraphqlClient } from '../common/api/graphql'
+import addressService from '../common/api/addressService';
 import cloudinaryService from '../common/api/cloudinaryService';
-import { getInstance } from '../plugins/Auth0LockWrapper';
 */
 export default {
   namespaced: true,
@@ -38,19 +37,19 @@ export default {
     }
   }, 
   actions: {
-    /*async login(context, { token, user_id, user }) {
-      console.log(token, user_id, user);
-      GraphqlClient.setToken(token);
+    async login(context, { token, user_id, user }) {
+      // GraphqlClient.setToken(token);
+      // TODO: replace localstorage with cookie
       localStorage.setItem('token', JSON.stringify(token))
       context.commit('setAuthentication', { token });
-      if(!user) {
+      /*if(!user) {
         user = await userService.getUser(user_id);
         console.log(user_id, user);
       }
       localStorage.setItem('user', JSON.stringify(user));
       context.commit('setUser', { user });
 
-      context.dispatch('conversations/Initialize', { user }, {root:true});
+      context.dispatch('conversations/Initialize', { user }, {root:true});*/
     },
     logout(context) {
       // Dont know why but it makes a loop of refreshing page!
@@ -64,7 +63,7 @@ export default {
       context.commit('setUser', {user: null});
       context.commit('setAuthentication', { token: null });
     },
-    async updateProfile(context, { profile, blobPhoto, address, successfulCallback, errorCallback }) {
+    /*async updateProfile(context, { profile, blobPhoto, address, successfulCallback, errorCallback }) {
       try {
         if(blobPhoto) {
           const response = await cloudinaryService.uploadFileToCloudinary(blobPhoto);

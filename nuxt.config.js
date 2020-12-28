@@ -1,4 +1,4 @@
-  
+import 'dotenv/config';
 import colors from 'vuetify/es5/util/colors'
 import i18n from './Vuei18n';
 
@@ -26,6 +26,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    { src: '~/plugins/auth0-lock.js', ssr: false },    
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -62,6 +63,7 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    '@nuxtjs/dotenv'
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
@@ -99,4 +101,11 @@ export default {
       });
     }
   },
+
+  privateRuntimeConfig: {
+  },
+
+  router: {
+    // middleware: 'auth',
+  }
 }

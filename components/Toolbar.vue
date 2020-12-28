@@ -71,7 +71,7 @@ export default {
   methods: {
     //#Event Handlers######################################
     login () {
-      this.$auth.login();
+      this.$auth0Lock.show();
     },
     changeLanguage: function (newSelectedLanguage) {
       this.$i18n.locale = newSelectedLanguage
