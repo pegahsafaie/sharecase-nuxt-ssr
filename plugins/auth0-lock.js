@@ -23,6 +23,10 @@ export default (ctx, inject) => {
     ctx.store.dispatch("user/login", { token: authResult.idToken, user_id: authResult.idTokenPayload.sub })
   })
 
+  if(localStorage.getItem('user') && localStorage.getItem('token')) {
+    ctx.store.dispatch("user/login", { token: JSON.parse(localStorage.getItem('token')), user: JSON.parse(localStorage.getItem('user')) })
+  }
+
   inject('auth0Lock', {
     instance: lock,
 

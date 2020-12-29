@@ -1,0 +1,15 @@
+fragment user on Users {
+  about
+  Address {
+    country
+    place
+    poi
+    postcode
+    locality
+  }
+  email
+  name
+  familly
+  phone
+  photoUrl
+}

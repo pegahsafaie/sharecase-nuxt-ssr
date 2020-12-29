@@ -1,0 +1,18 @@
+query getUser ($user_id: String) {
+  Users(where: {user_id: {_eq: $user_id}}) {
+    user_id
+    about
+    Address {
+      country
+      place
+      poi
+      postcode
+      locality
+    }
+    email
+    name
+    familly
+    phone
+    photoUrl
+  }
+}

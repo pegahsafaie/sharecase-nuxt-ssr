@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/dotenv": "^1.4.1",
     "auth0-lock": "^11.27.1",
     "core-js": "^3.6.5",
+    "graphql-tag": "^2.11.0",
     "nanoid": "^2.1.11",
     "nuxt": "^2.14.6",
     "nuxt-i18n": "^6.16.0"

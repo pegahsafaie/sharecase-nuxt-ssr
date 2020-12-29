@@ -63,7 +63,8 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    "@nuxtjs/apollo"
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
@@ -107,5 +108,12 @@ export default {
 
   router: {
     // middleware: 'auth',
+  },
+
+  apollo: {
+    includeNodeModules: true,
+    clientConfigs: {
+      default: '~/plugins/alternative-apollo-config.js',
+    }
   }
 }
