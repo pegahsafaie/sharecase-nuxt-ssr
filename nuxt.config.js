@@ -4,7 +4,14 @@ import i18n from './Vuei18n';
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
+  target: 'static', // server 
+  // this website can not be rendered by static rendering.
+  // the reason for that is that for fetching last invites on the 
+  // index.vue page, we need jwt auth which we dont have without login 
+  // and cant be generated in build time.
+  // one solution for that can be embedding adminSecret in build time but I am 
+  // afraid of that
+
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -64,14 +71,15 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     '@nuxtjs/dotenv',
-    "@nuxtjs/apollo"
+    "@nuxtjs/apollo",
+    ['cookie-universal-nuxt', { alias: 'cookiz' }]
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -104,6 +112,7 @@ export default {
   },
 
   privateRuntimeConfig: {
+    ADMIN_SECRET: "kyKRknf64pQUZWF"
   },
 
   router: {
@@ -111,7 +120,8 @@ export default {
   },
 
   apollo: {
-    includeNodeModules: true,
+    includeNodeModules: true,// Add GQL file recognition on node_modules
+    errorHandler: '~/plugins/apollo-error-handler.js',
     clientConfigs: {
       default: '~/plugins/alternative-apollo-config.js',
     }

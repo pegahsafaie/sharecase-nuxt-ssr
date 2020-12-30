@@ -38,9 +38,14 @@ export default {
   }, 
   actions: {
     async login(context, { token, user_id, user }) {
-      console.log(this.app);
-      // TODO: replace localstorage with cookie
-      localStorage.setItem('token', JSON.stringify(token))
+      if(process.client) {
+        console.log('vuex login try by client:');
+        document.cookie = `token=${token}`
+      } else {
+        console.log('vuex login try by sever:');
+        res.setHeader('Set-Cookie', [`token=${token}`]);
+      } 
+      // this.$cookiz.set('token', token);
       context.commit('setAuthentication', { token });
       if(!user) {
         const client = this.app.apolloProvider.defaultClient;
@@ -48,25 +53,25 @@ export default {
           query: getUser, 
           variables: { user_id }
         });
-        console.log(data.Users);
-        localStorage.setItem('user', JSON.stringify(data.Users[0]));
+        if(process.client) {
+          localStorage.setItem('user', JSON.stringify(data.Users[0]));
+        }
         context.commit('setUser', { user: data.Users[0] });
       } else {
-        localStorage.setItem('user', JSON.stringify(user));
+        if(process.client) {
+          localStorage.setItem('user', JSON.stringify(user));
+        }
         context.commit('setUser', { user });
       }
 
       // context.dispatch('conversations/Initialize', { user }, {root:true});
     },
     logout(context) {
-      // Dont know why but it makes a loop of refreshing page!
-      localStorage.setItem('user', null);
-      localStorage.setItem('token', null);
-      const auth0 = getInstance();
-      if(auth0) {
-        auth0.logout();
+      if(process.client) {
+        localStorage.setItem('user', null);
+        this.$auth0Lock.logout();
       }
-      
+      this.$cookiz.remove('token');
       context.commit('setUser', {user: null});
       context.commit('setAuthentication', { token: null });
     },

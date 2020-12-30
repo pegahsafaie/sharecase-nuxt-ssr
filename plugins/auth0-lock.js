@@ -23,8 +23,12 @@ export default (ctx, inject) => {
     ctx.store.dispatch("user/login", { token: authResult.idToken, user_id: authResult.idTokenPayload.sub })
   })
 
-  if(localStorage.getItem('user') && localStorage.getItem('token')) {
-    ctx.store.dispatch("user/login", { token: JSON.parse(localStorage.getItem('token')), user: JSON.parse(localStorage.getItem('user')) })
+  if(ctx.$cookiz.get('user') && ctx.$cookiz.get('token')) {
+    ctx.store.dispatch("user/login", { token: ctx.$cookiz.get('token'), user: ctx.$cookiz.get('user') })
+  }
+
+  if(ctx.$cookiz.get('token') && !ctx.$cookiz.get('user')) {
+    ctx.store.dispatch("user/login", { token: ctx.$cookiz.get('token') })
   }
 
   inject('auth0Lock', {

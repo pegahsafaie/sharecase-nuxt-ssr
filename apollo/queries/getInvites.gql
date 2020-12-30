@@ -1,0 +1,28 @@
+query getInvites($last: Int) {
+  Invites(limit: $last, order_by: {uid:desc}) {
+    description
+    price
+    takeaway
+    alternativeAddress
+    date
+    event
+    female
+    male
+    sender
+    uid
+    photoUrl
+    User {
+      user_id
+      name,
+      familly,
+      photoUrl,
+    }
+    Address {
+      country
+      locality
+      place
+      poi
+      postcode
+    }
+  }
+}
