@@ -24,15 +24,20 @@
     "nuxt-i18n": "^6.16.0"
   },
   "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
     "eslint-plugin-nuxt": "^1.0.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.32.0",
+    "sass-loader": "^7.1.10",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.12"
   }

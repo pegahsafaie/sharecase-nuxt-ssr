@@ -50,7 +50,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="fas fa-money-bill-wave"></i>
+            <fa icon="money-bill-wave" />
           </span>
           <h4>
             <strong>Geld Verdienen</strong>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="fas fa-drumstick-bite"></i>
+            <fa icon="drumstick-bite" />
           </span>
           <h4>
             <strong>Essen Finden</strong>
@@ -68,17 +68,17 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="fas fa-heart"></i>
+            <fa icon="heart" />
           </span>
           <h4>
             <strong>Essen Schenken</strong>
           </h4>
           <p class="text-faded mb-0">Schenck was du über hast
-            <i class="fas fa-heart"></i></p>
+            <fa icon="heart" /></p>
         </div>
         <div class="col-lg-3 col-md-6">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="fas fa-glass-cheers"></i>
+            <fa icon="glass-cheers" />
           </span>
           <h4>
             <strong>Party</strong>
@@ -136,7 +136,7 @@
          <h4 class="card-title mt-1">Doris Grüber</h4>
          <hr>
          <!--Quotation-->
-         <p><i class="fas fa-quote-left"></i>{{$t('doris')}}</p>
+         <p><fa icon="quote-left" />{{$t('doris')}}</p>
        </div>
 
      </div>
@@ -161,7 +161,7 @@
          <h4 class="card-title mt-1">Pegah Safaie</h4>
          <hr>
          <!--Quotation-->
-         <p><i class="fas fa-quote-left"></i>{{$t('pegah')}}</p>
+         <p><fa icon="quote-left" />{{$t('pegah')}}</p>
        </div>
 
      </div>
@@ -201,7 +201,7 @@
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+    <fa icon="angle-up" />
   </a>
 
   <v-snackbar v-model="snackbar" :timeout="timeout">
@@ -226,9 +226,6 @@ export default ({
       context: {},
       Invites: [],
     }
-  },
-  mounted() {
-    // console.log('from **.vue', process.client);
   },
   /*
   you can also do the query like this I think, using the Nuxt asyncData hook:

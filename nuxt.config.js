@@ -29,6 +29,8 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/scss/main.scss',
+    '@/assets/scss/bootstrap.css',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -41,9 +43,13 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/vuetify
+    ['@nuxtjs/fontawesome',{
+      component: 'fa',
+      icons: {
+        solid: true
+      }
+    }],
     '@nuxtjs/vuetify',
     [
       'nuxt-i18n',
@@ -92,6 +98,9 @@ export default {
         }
       }
     }
+  },
+
+  fontawesome: {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

@@ -24,28 +24,28 @@
               <v-list-item class="cursor-pointer" @click="openProfile()">
                 <v-list-item-content>
                   <v-list-item-title>
-                    <i class="fas fa-user"></i> {{$t('navigation.user')}}
+                    <fa icon="user"/> {{$t('navigation.user')}}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item class="cursor-pointer" @click="goToNotifications()">
                 <v-list-item-content>
                   <v-list-item-title>
-                    <i class="fas fa-envelope"></i> {{$t('navigation.notifications')}}
+                    <fa icon='envelope'/>{{$t('navigation.notifications')}}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item class="cursor-pointer" @click.prevent="onForgotPassword()">
                 <v-list-item-content>
                   <v-list-item-title>
-                    <i class="fas fa-pen"></i> {{$t('register.change.title')}}
+                    <fa icon="pen" /> {{$t('register.change.title')}}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item class="cursor-pointer" @click="logout()">
                 <v-list-item-content>
                   <v-list-item-title>
-                    <i class="fas fa-door-closed"></i> {{$t('navigation.signout')}}
+                    <fa icon="door-closed"/> {{$t('navigation.signout')}}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
