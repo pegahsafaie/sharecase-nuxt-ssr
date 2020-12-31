@@ -5,7 +5,9 @@ export default (context) => {
       headers:{
         // we need this password for the firs static build on server before login
         // the password will not be delivered to the client
-        'X-Hasura-Admin-Secret': context.$cookiz.get('token') ? '' : context.$config.ADMIN_SECRET
+        // TODO: think about it! can be dangerous even when it is just used by server
+        // It means that server renders even without login are able to do everything!
+        'X-Hasura-Admin-Secret': context.$cookiz.get('token') ? undefined : context.$config.ADMIN_SECRET
       }
     },
     /*

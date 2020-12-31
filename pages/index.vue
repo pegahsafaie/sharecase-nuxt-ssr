@@ -230,6 +230,16 @@ export default ({
   mounted() {
     // console.log('from **.vue', process.client);
   },
+  /*
+  you can also do the query like this I think, using the Nuxt asyncData hook:
+  asyncData (context) {
+    let client = context.app.apolloProvider.defaultClient
+    client.query({query, variables})
+        .then(({ data }) => {
+          // do what you want with data
+        })
+  }
+  */
   apollo: {
     Invites: {
       query: getInvites,

@@ -21,34 +21,34 @@
           </template>
           <v-card>
             <v-list class="text-center">
-              <v-list-tile class="cursor-pointer" @click="openProfile()">
-                <v-list-tile-content>
-                  <v-list-tile-title>
+              <v-list-item class="cursor-pointer" @click="openProfile()">
+                <v-list-item-content>
+                  <v-list-item-title>
                     <i class="fas fa-user"></i> {{$t('navigation.user')}}
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile class="cursor-pointer" @click="goToNotifications()">
-                <v-list-tile-content>
-                  <v-list-tile-title>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item class="cursor-pointer" @click="goToNotifications()">
+                <v-list-item-content>
+                  <v-list-item-title>
                     <i class="fas fa-envelope"></i> {{$t('navigation.notifications')}}
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile class="cursor-pointer" @click.prevent="onForgotPassword()">
-                <v-list-tile-content>
-                  <v-list-tile-title>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item class="cursor-pointer" @click.prevent="onForgotPassword()">
+                <v-list-item-content>
+                  <v-list-item-title>
                     <i class="fas fa-pen"></i> {{$t('register.change.title')}}
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile class="cursor-pointer" @click="logout()">
-                <v-list-tile-content>
-                  <v-list-tile-title>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item class="cursor-pointer" @click="logout()">
+                <v-list-item-content>
+                  <v-list-item-title>
                     <i class="fas fa-door-closed"></i> {{$t('navigation.signout')}}
-                  </v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
             </v-list>
           </v-card>
         </v-menu>
