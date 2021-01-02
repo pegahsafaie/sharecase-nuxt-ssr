@@ -27,10 +27,6 @@ export default (ctx, inject) => {
     ctx.store.dispatch("user/login", { token: ctx.$cookiz.get('token'), user: ctx.$cookiz.get('user') })
   }
 
-  if(ctx.$cookiz.get('token') && !ctx.$cookiz.get('user')) {
-    ctx.store.dispatch("user/login", { token: ctx.$cookiz.get('token') })
-  }
-
   inject('auth0Lock', {
     instance: lock,
 
@@ -81,9 +77,10 @@ export default (ctx, inject) => {
     logout () {
       if (silentCheck) clearTimeout(silentCheck)
 
-      lock.logout({
+      /*lock.logout({
         returnTo: 'http://YOUR/RETURN_TO'
-      })
+      })*/
+      lock.logout()
     }
   })
 }

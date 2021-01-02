@@ -1,8 +1,8 @@
-import { getUser } from '../apollo/queries/getUser.gql';
-/*
-import addressService from '../common/api/addressService';
-import cloudinaryService from '../common/api/cloudinaryService';
-*/
+import getUser from '../apollo/queries/getUser.gql';
+import insertAddress from '../apollo/queries/insertAddress.gql';
+import updateUser from '../apollo/queries/updateUser.gql';
+import cloudinaryService from '../mixins/cloudinaryService';
+
 export default {
   namespaced: true,
   state: () => { 
@@ -38,14 +38,13 @@ export default {
   }, 
   actions: {
     async login(context, { token, user_id, user }) {
+      /* It is exactly what this.$cokiz do
       if(process.client) {
-        console.log('vuex login try by client:');
         document.cookie = `token=${token}`
       } else {
-        console.log('vuex login try by sever:');
         res.setHeader('Set-Cookie', [`token=${token}`]);
-      } 
-      // this.$cookiz.set('token', token);
+      } */
+      this.$cookiz.set('token', token);
       context.commit('setAuthentication', { token });
       if(!user) {
         const client = this.app.apolloProvider.defaultClient;
@@ -53,45 +52,55 @@ export default {
           query: getUser, 
           variables: { user_id }
         });
-        if(process.client) {
-          localStorage.setItem('user', JSON.stringify(data.Users[0]));
-        }
+        this.$cookiz.set('user', data.Users[0]);
         context.commit('setUser', { user: data.Users[0] });
       } else {
-        if(process.client) {
-          localStorage.setItem('user', JSON.stringify(user));
-        }
+        this.$cookiz.set('user', user);
         context.commit('setUser', { user });
       }
 
       // context.dispatch('conversations/Initialize', { user }, {root:true});
     },
     logout(context) {
-      if(process.client) {
-        localStorage.setItem('user', null);
-        this.$auth0Lock.logout();
-      }
+      this.$auth0Lock.logout();
+      this.$cookiz.remove('user');
       this.$cookiz.remove('token');
       context.commit('setUser', {user: null});
       context.commit('setAuthentication', { token: null });
     },
-    /*async updateProfile(context, { profile, blobPhoto, address, successfulCallback, errorCallback }) {
+    async updateProfile(context, { profile, blobPhoto, address, successfulCallback, errorCallback }) {
       try {
+        const client = this.app.apolloProvider.defaultClient;
         if(blobPhoto) {
           const response = await cloudinaryService.uploadFileToCloudinary(blobPhoto);
           profile.photoUrl = response.url;
         }
         if(address) {
-          const response = await addressService.insertAddress(address);
-          profile.address = response.uid;
+          const { data } = await client.mutate({
+            mutation: insertAddress, 
+            variables: {
+              country:address.country, 
+              place: address.place, 
+              poi: address.poi, 
+              locality: address.locality, 
+              postcode: address.postcode
+            }
+          });
+          profile.address = data.insert_Address.returning[0].uid;
         }
-        const user = await userService.updateUser(profile);
-        localStorage.setItem('user', JSON.stringify(user));
+        const { data } = await client.mutate({
+          mutation: updateUser, 
+          variables: {
+            ...profile
+          }
+        });
+        const user = data.update_Users.returning[0];
+        this.$cookiz.set('user', user);
         context.commit('setUser', { user });
         if(successfulCallback) successfulCallback(user);
       } catch (exception) {
         if(errorCallback) errorCallback(exception);        
       }
-    }*/
+    }
   }
 }

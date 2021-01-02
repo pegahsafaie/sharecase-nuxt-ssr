@@ -4,7 +4,7 @@ import i18n from './Vuei18n';
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static', // server 
+  target: 'server', // static 
   // this website can not be rendered by static rendering.
   // the reason for that is that for fetching last invites on the 
   // index.vue page, we need jwt auth which we dont have without login 
@@ -97,6 +97,8 @@ export default {
           success: colors.green.accent3
         }
       }
+    }, defaultAssets: {
+      icons: 'mdi',
     }
   },
 

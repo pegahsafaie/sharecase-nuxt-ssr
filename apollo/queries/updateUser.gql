@@ -1,0 +1,31 @@
+mutation($user_id: String, $about: String, $email: String, $name: String, $familly: String, $phone: String, $photoUrl: String, $address: Int) {
+  update_Users(where: {user_id: {_eq: $user_id}}, _set: 
+  {
+    about: $about,
+    email: $email,
+    name: $name,
+    familly: $familly,
+    phone: $phone,
+    photoUrl: $photoUrl,
+    address: $address
+  }) 
+  {
+    returning {
+      user_id
+      about
+      address_id: address
+      Address {
+        country
+        place
+        poi
+        postcode
+        locality
+      }
+      email
+      name
+      familly
+      phone
+      photoUrl
+    }
+  }
+}

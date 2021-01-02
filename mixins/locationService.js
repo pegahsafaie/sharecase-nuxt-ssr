@@ -62,7 +62,7 @@ export default {
    */
   searchMapBoxAPI(searchText, autoComplete = true, cb) {
     fetch(`${availableAPIs.mapbox.url}/${searchText}.json?autocomplete=${autoComplete}&access_token=${availableAPIs.mapbox.token}&country=de`).
-    then(response => response.json).
+    then(response => response.json()).
     then(body => {
       if(body) {
         const transformedAddresses = body.features.map(feature => { 

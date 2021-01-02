@@ -15,7 +15,7 @@
         clearable
         return-object
         @input="getAddressData"
-        prepend-inner-icon="place"
+        prepend-inner-icon="mdi-city"
         @click:prepend-inner="setCurrentLocation"
       ></v-autocomplete>
   </div>

@@ -1,15 +1,6 @@
 export default (context) => {
   return {
     httpEndpoint: 'https://supreme-chipmunk-45.hasura.app/v1/graphql',
-    httpLinkOptions: {
-      headers:{
-        // we need this password for the firs static build on server before login
-        // the password will not be delivered to the client
-        // TODO: think about it! can be dangerous even when it is just used by server
-        // It means that server renders even without login are able to do everything!
-        'X-Hasura-Admin-Secret': context.$cookiz.get('token') ? undefined : context.$config.ADMIN_SECRET
-      }
-    },
     /*
      * For permanent authentication provide `getAuth` function.
      * The string returned will be used in all requests as authorization header

@@ -1,0 +1,6 @@
+mutation($country: String, $place: String, $poi: String, $postcode: String, $locality: String) {
+  insert_Address(objects: {country:$country, place: $place, poi: $poi, locality: $locality, postcode: $postcode}) {
+  affected_rows,
+  returning {uid}
+  }
+}

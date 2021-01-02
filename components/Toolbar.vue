@@ -1,6 +1,6 @@
 <template>
 <div>
-  <v-toolbar fixed flat height="50px">
+  <v-toolbar fixed height="50px">
       <toggle v-model="language" @change="changeLanguage"/>
       <v-spacer></v-spacer>
       <!--<div class="icons ladybug" v-html="require('~/assets/icons/ladybug.svg')"></div>-->
@@ -77,13 +77,13 @@ export default {
       this.$i18n.locale = newSelectedLanguage
     },
     goHome: function() {
-      this.$router.replace( { name: 'Home' })
+      this.$router.replace( { path: '/' })
     },
     goToNotifications: function () {
-      this.$router.push({name: 'Notifications', params: {uid: this.user.user_id }})
+      this.$router.push({path: '/Notifications', params: {uid: this.user.user_id }})
     },
     openProfile: function() {
-      this.$router.push( { name: 'Me', params: {owner: true, uid: this.user.user_id} })
+      this.$router.push( { path: '/Profile', params: {owner: true, uid: this.user.user_id} })
     }, logout: function() {
       return this.$store.dispatch('user/logout');
     },

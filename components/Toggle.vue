@@ -11,7 +11,7 @@ import germany from '~/assets/icons/germany.svg'
 import iran from '~/assets/icons/iran.svg'
 import english from '~/assets/icons/en.svg'
 export default {
-  name:'toggle',
+  name:'Toggle',
   props: ['value'],
   data() {
     return {

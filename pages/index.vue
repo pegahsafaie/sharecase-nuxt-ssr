@@ -206,7 +206,7 @@
 
   <v-snackbar v-model="snackbar" :timeout="timeout">
     {{toast}}
-    <v-btn dark flat @click="snackbar = false">
+    <v-btn dark text @click="snackbar = false">
       Close
     </v-btn>
   </v-snackbar>
@@ -215,7 +215,6 @@
 
 <script>
 
-// import invitesService from '../common/api/invitesService';
 import getInvites from '../apollo/queries/getInvites';
 export default ({
   data: () => {
@@ -227,24 +226,35 @@ export default ({
       Invites: [],
     }
   },
-  /*
-  you can also do the query like this I think, using the Nuxt asyncData hook:
-  asyncData (context) {
-    let client = context.app.apolloProvider.defaultClient
-    client.query({query, variables})
+  middleware: 'showLogin',
+  // you can also do the query like this I think, using the Nuxt asyncData hook:
+  asyncData (context) {    
+    const client = context.app.apolloProvider.defaultClient
+    const query =  {
+      query: getInvites, 
+      variables: {
+      last: 4
+      }
+    };
+    if(context.$cookiz.get('token')) {
+      console.log('last invites: ssr rendering + token available');
+      return client.query(query)
         .then(({ data }) => {
-          // do what you want with data
-        })
-  }
-  */
-  apollo: {
+        //  Nuxt.js will automatically merge the returned object with the component data
+        return { Invites: data.Invites };
+      })
+    } else {
+      console.log('last invites: static rendering || ssr rendering and token not available');
+    }
+  },
+  /*apollo: {
     Invites: {
       query: getInvites,
       variables: {
         last: 4
       }
     }
-  },
+  },*/
   methods: {
     search: function () {
       this.$router.push({
