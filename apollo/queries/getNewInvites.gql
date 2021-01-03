@@ -1,6 +1,6 @@
-query getInvites($last: Int, $user_id: String, $country: String, $locality: String, $place:String, $poi: String, $postcode: String) {
+subscription getNewInvites($user_id: String, $country: String, $locality: String, $place:String, $poi: String, $postcode: String) {
   Invites(
-    limit: $last, 
+    limit: 1,
     order_by: {uid:desc},
     where: {_or: 
     [

@@ -1,0 +1,18 @@
+mutation($description: String, $price: Boolean, $takeaway: Boolean, $event: Boolean, $female: Boolean, $male: Boolean, $alternativeAddress: Int, $sender: String, $date: date, $photoUrl: String) {
+  insert_Invites(objects: {
+    description: $description, 
+    price: $price, 
+    takeaway: $takeaway
+    alternativeAddress: $alternativeAddress,
+    date: $date,
+    event: $event,
+    female: $female
+    male: $male,
+    sender: $sender,
+    photoUrl: $photoUrl}) {
+    affected_rows
+    returning {
+      uid
+  	}
+  }
+}

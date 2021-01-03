@@ -17,12 +17,14 @@
     "auth0-lock": "^11.27.1",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.6.5",
+    "cropperjs": "^1.5.9",
     "graphql-tag": "^2.11.0",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.15",
     "nanoid": "^2.1.11",
     "nuxt": "^2.14.6",
-    "nuxt-i18n": "^6.16.0"
+    "nuxt-i18n": "^6.16.0",
+    "vue-beautiful-chat": "^2.5.0"
   },
   "devDependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.1",

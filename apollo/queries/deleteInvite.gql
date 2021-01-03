@@ -1,0 +1,6 @@
+mutation ($uid: Int) {
+  delete_Invites(where:{uid: {_eq:$uid}}) 
+  {
+    affected_rows
+  }
+}

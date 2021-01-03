@@ -1,6 +1,7 @@
 export default (context) => {
   return {
-    httpEndpoint: 'https://supreme-chipmunk-45.hasura.app/v1/graphql',
+    wsEndpoint: process.env.APOLLO_WS_ENDPOINT,
+    httpEndpoint: process.env.APOLLO_HTTP_ENDPOINT,
     /*
      * For permanent authentication provide `getAuth` function.
      * The string returned will be used in all requests as authorization header

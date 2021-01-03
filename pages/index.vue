@@ -258,7 +258,7 @@ export default ({
   methods: {
     search: function () {
       this.$router.push({
-        name: 'Foods', query: { ...this.context }
+        path: '/Gallery', query: { ...this.context }
       })
     },
     changeAddress: function(addressObject) {
