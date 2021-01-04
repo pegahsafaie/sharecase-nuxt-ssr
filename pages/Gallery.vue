@@ -118,8 +118,10 @@ export default ({
       newInvites: {
         query: getNewInvites,
         result ({ data }) {
-          data.Invites.forEach(invite => {
-            this.invites.unshift(invite);
+          data.Invites.forEach(newInvite => {
+            if(!this.invites.find((invite) => invite.uid === newInvite.uid)) {
+              this.invites.unshift(newInvite)
+            }
           })
         },
       },
@@ -176,10 +178,8 @@ export default ({
     // when user ask tp open a new chat we first check if it is already open or no
     // when no, we create a chat and subscribe it to changes
     joinChat: async function (item) {
-      console.log('join chat', item);
       const openChatWithItemSender = this.conversations.find(chat => chat.participants.find(cp => cp.user_id === item.sender_id));
       if (!openChatWithItemSender) {
-        console.log('openChatWithItemSender');
         const client = this.$nuxt.context.app.apolloProvider.defaultClient
         const query = {
           query: getUser,
@@ -192,7 +192,6 @@ export default ({
         this.$store.dispatch('conversations/setConversation', { participants: [chatParticipant, this.user] });
         this.activeChat = { participants: [chatParticipant, this.user] };
       } else {
-        console.log('openChatWithItemSender else');
         this.activeChat = openChatWithItemSender;
       }
     },

@@ -1,7 +1,7 @@
 <template>
-<div @click="launchFilePicker()">
+<div>
     <div>
-        <div>
+        <div @click="launchFilePicker()">
           <slot name="activator"></slot>
         </div>
         <slot name="visualizer"></slot>

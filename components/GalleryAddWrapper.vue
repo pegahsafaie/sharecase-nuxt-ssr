@@ -61,7 +61,14 @@
               </template>
               <template #visualizer v-else>
                 <div>
-                  <img v-on:load="setCropper()" width="300" ref="image" height="300" :src="originPhoto.imageURL">
+                  <vue-cropper
+                    ref="cropper"
+                    :src="originPhoto.imageURL"
+                    alt="Here sit your foods' image"
+                    @ready="ready"
+                    @crop="crop"
+                  >
+                  </vue-cropper>
                 </div>
               </template>
           </image-uploader>
@@ -87,7 +94,8 @@ import imageUploader from './ImageUploader'
 import addressInput from './AddressInput'
 import avatar from './Avatar'
 
-import Cropper from "cropperjs";
+import VueCropper from 'vue-cropperjs';
+import 'cropperjs/dist/cropper.css';
 
 import insertInvite from '../apollo/queries/insertInvite.gql'
 import insertAddress from '../apollo/queries/insertAddress.gql'
@@ -108,35 +116,31 @@ export default {
         takeaway: false,
         event: false,
         blobPhoto: {}
-      },
-      cropper: {},
+      }
     }
   },
   props: ['user'],
   mounted () {
     this.address = { ...this.user.Address };
-    console.log('address', this.address);
   },
   components: {
     imageUploader,
     addressInput,
-    avatar
+    avatar,
+    VueCropper
   },
   methods: {
-    setCropper: function() {
-      const image = this.$refs['image']
-      this.cropper = new Cropper(image, {
-        autoCrop: false,
-        ready() {
-          this.cropper.crop();
-          this.modifiedCanvas = this.cropper.getCroppedCanvas();
-          // this.modifiedPhoto = canvas.toDataURL("image/png");
-        },
-        crop: () => {
-          this.modifiedCanvas = this.cropper.getCroppedCanvas();
-          // this.modifiedPhoto = canvas.toDataURL("image/png");
-        }
-      });
+    ready: function() {
+      if(this.$refs.cropper) {
+        this.modifiedCanvas = this.$refs.cropper.getCroppedCanvas();
+      }
+      // this.modifiedPhoto = canvas.toDataURL("image/png");
+    },
+    crop: function () {
+      if(this.$refs.cropper) {
+        this.modifiedCanvas = this.$refs.cropper.getCroppedCanvas();
+      }
+      // this.modifiedPhoto = canvas.toDataURL("image/png");
     },
     saveItem: function () {
       this.invite.address = { ...this.address }; // the default address comes from the useraddress but use always can change it
