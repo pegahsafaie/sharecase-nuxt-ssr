@@ -1,0 +1,8 @@
+mutation($author: String, $receiver: String, $data: String, $date: date, $type: String) { 
+    insert_Notifications(objects: {author:$author, receiver:$receiver, data: $data, date: $date, type: $type}) {
+      affected_rows
+      returning {
+        uid
+      }
+  }
+}

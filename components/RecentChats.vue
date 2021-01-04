@@ -6,8 +6,8 @@
       <v-spacer></v-spacer>
 
       <v-btn icon @click="toggle()">
-        <v-icon v-if="minimized">vertical_align_top</v-icon>
-        <v-icon v-else>vertical_align_bottom</v-icon>
+        <v-icon v-if="minimized">mdi-arrow-up</v-icon>
+        <v-icon v-else>mdi-arrow-down</v-icon>
       </v-btn>
     </v-toolbar>
 

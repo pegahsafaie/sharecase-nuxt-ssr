@@ -1,0 +1,7 @@
+mutation($messageIds: [Int!]) {
+  update_Notifications(where: {uid:{_in:$messageIds}}, _set: {seen: true}) {
+    returning {
+      data
+    }
+  }
+}

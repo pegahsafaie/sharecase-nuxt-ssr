@@ -38,6 +38,7 @@ export default {
   }, 
   actions: {
     async login(context, { token, user_id, user }) {
+      console.log('LOGIN');
       /* It is exactly what this.$cokiz do
       if(process.client) {
         document.cookie = `token=${token}`
@@ -58,8 +59,8 @@ export default {
         this.$cookiz.set('user', user);
         context.commit('setUser', { user });
       }
-
-      // context.dispatch('conversations/Initialize', { user }, {root:true});
+      console.log('client here');
+      context.dispatch('conversations/Initialize', { user }, {root:true});
     },
     logout(context) {
       this.$auth0Lock.logout();

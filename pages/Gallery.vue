@@ -37,9 +37,7 @@
                     @on-delete="deleteItem"
                     @click="open"
                     class="item" 
-                    :user= "invite.User" 
-                    :item="invite"
-                    :is-user-profile-completed="isUserProfileCompleted">
+                    :item="invite">
       </gallery-item>
     </div>
   </div>
@@ -49,7 +47,6 @@
   <v-dialog v-model="openDialog" max-width="374">
     <gallery-item-detail v-if="openDialog" :invite="selectedItem" v-on:close-dialog="close"/>
   </v-dialog>
-  <recent-chats style="position:fixed; bottom:25px; right:25px" :openChat="openChat" />
   <chat
     v-if="activeChat"
     :participants="activeChat.participants"
@@ -61,7 +58,6 @@
 </template>
 
 <script>
-import recentChats from '../components/RecentChats'
 import chat from '../components/Chat'
 import galleryItemDetail from '../components/GalleryItemDetail'
 import galleryNewItem from '../components/GalleryAddWrapper'
@@ -130,7 +126,6 @@ export default ({
     },
 },
   components: {
-    recentChats,
     galleryItem,
     galleryNewItem,
     chat,
@@ -138,9 +133,6 @@ export default ({
     addressInput
   },
   methods: {
-    openChat: function (activeChat) {
-      this.activeChat = activeChat;
-    },
     changeAddress: function (address) {
       this.selectedAddress = address
     },
@@ -184,8 +176,10 @@ export default ({
     // when user ask tp open a new chat we first check if it is already open or no
     // when no, we create a chat and subscribe it to changes
     joinChat: async function (item) {
+      console.log('join chat', item);
       const openChatWithItemSender = this.conversations.find(chat => chat.participants.find(cp => cp.user_id === item.sender_id));
       if (!openChatWithItemSender) {
+        console.log('openChatWithItemSender');
         const client = this.$nuxt.context.app.apolloProvider.defaultClient
         const query = {
           query: getUser,
@@ -198,6 +192,7 @@ export default ({
         this.$store.dispatch('conversations/setConversation', { participants: [chatParticipant, this.user] });
         this.activeChat = { participants: [chatParticipant, this.user] };
       } else {
+        console.log('openChatWithItemSender else');
         this.activeChat = openChatWithItemSender;
       }
     },

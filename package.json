@@ -24,7 +24,7 @@
     "nanoid": "^2.1.11",
     "nuxt": "^2.14.6",
     "nuxt-i18n": "^6.16.0",
-    "vue-beautiful-chat": "^2.5.0"
+    "vue-beautiful-chat": "^2.3.1"
   },
   "devDependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.1",

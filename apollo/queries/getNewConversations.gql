@@ -1,0 +1,17 @@
+subscription($user_id: String) {
+  Notifications(
+    order_by: {
+      uid: desc
+    }
+    limit: 1
+    where: {_or: [{author:{_eq:$user_id}} ,{receiver:{_eq:$user_id}}]} ) {
+    UserByAuthor {name,,photoUrl,familly,user_id},
+    data,
+    date,
+    seen,
+    type,
+    author,
+    uid,
+    userByReceiver {name,,photoUrl,familly,user_id}
+  }
+}

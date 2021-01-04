@@ -45,7 +45,7 @@
 <script>
 export default {
   name: 'galleryItem',
-  props: ['item', 'user'],
+  props: ['item'],
   data () {
     return {
     }
@@ -66,7 +66,10 @@ export default {
   computed: {
     isOwner() {
       return this.user && this.user.user_id === this.item.User.user_id
-    }
+    },
+    user() {
+      return this.$store.getters['user/me'];
+    },
   }
 }
 </script>

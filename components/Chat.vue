@@ -7,8 +7,8 @@
       :messageList="messageList"
       :newMessagesCount="newMessagesCount"
       :isOpen="isChatOpen"
-      :close="closeChat"
       :icons="icons"
+      :close="closeChat"
       :open="openChat"
       :showEmoji="true"
       :showFile="true"
@@ -33,11 +33,33 @@
 
 <script>
 import avatar from './Avatar';
+import CloseIcon from '~/assets/images/close-icon.png'
+import OpenIcon from '~/assets/images/open-chat.png'
+import FileIcon from '~/assets/images/file.svg'
+import CloseIconSvg from '~/assets/images/close.svg'
 
 export default {
   name: 'chat',
   data() {
     return {
+      icons:{
+        open:{
+          img: OpenIcon,
+          name: 'default',
+        },
+        close:{
+          img: CloseIcon,
+          name: 'default',
+        },
+        file:{
+          img: FileIcon,
+          name: 'default',
+        },
+        closeSvg:{
+          img: CloseIconSvg,
+          name: 'default',
+        },
+      },
       titleImageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
       newMessagesCount: 0,
       showTypingIndicator: '', // when set to a value matching the participant.id it shows the typing indicator for the specific user
@@ -70,7 +92,7 @@ export default {
     }
   },
   components: {
-    avatar,
+    avatar
   },
   computed: {
     messageList() {
@@ -113,18 +135,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .sc-launcher {
-    right:550px !important;
-  }
-  .sc-chat-window {
-    right:550px !important;
-  }
-  .sc-closed-icon {
-    right:550px !important;
-  }
-  .sc-open-icon {
-    right:550px !important;
-  }
-</style>>
