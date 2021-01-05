@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto my-12">
+  <v-card>
     <v-card-text>
 
     <div>
@@ -26,10 +26,10 @@
     
 
     
-      <v-chip-group active-class="deep-purple accent-4 white--text"  column style="display: flex;justify-content: center;">
+      <v-chip-group multiple column style="display: flex;justify-content: center;">
         <v-chip :class="`icon-links${invite.price ? '-selected' : ''}`" 
         :title="$t('invite_pay')" @click="togglePrice">
-          <fa icon="shopping-bag" />
+          <fa icon="wallet" />
         </v-chip>
         <v-chip :class="`icon-links${invite.takeaway ? '-selected' : ''}`" 
         :title="$t('invite_takeway')" @click="toggleTakeaway">
@@ -238,6 +238,7 @@ export default {
 }
 
 .icon-links {
+  background: grey;
   color: #1d809f;
   font-size: 1.2em;
 }
