@@ -1,4 +1,4 @@
-import 'dotenv/config';
+// import 'dotenv/config';
 import colors from 'vuetify/es5/util/colors'
 import i18n from './Vuei18n';
 
@@ -16,7 +16,7 @@ export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - share-cafe-nuxt',
-    title: 'share-cafe-nuxt',
+    title: 'share cafe',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -44,7 +44,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    '@nuxtjs/dotenv',
+    //'@nuxtjs/dotenv',
     '@nuxt/typescript-build',
     ['@nuxtjs/fontawesome',{
       component: 'fa',
