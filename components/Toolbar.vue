@@ -35,13 +35,6 @@
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item class="cursor-pointer" @click.prevent="onForgotPassword()">
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <fa icon="pen" /> {{$t('register.change.title')}}
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
               <v-list-item class="cursor-pointer" @click="logout()">
                 <v-list-item-content>
                   <v-list-item-title>

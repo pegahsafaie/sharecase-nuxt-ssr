@@ -124,7 +124,6 @@ export default {
   },
 
   privateRuntimeConfig: {
-    ADMIN_SECRET: "kyKRknf64pQUZWF"
   },
 
   router: {
