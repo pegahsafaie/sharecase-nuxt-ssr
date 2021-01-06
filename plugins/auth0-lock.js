@@ -10,7 +10,7 @@ const lock = new Auth0Lock(
       logo: "http://clipart-library.com/images_k/ladybug-transparent-background/ladybug-transparent-background-2.png",
     },
     auth: {
-      redirectUrl: 'http://localhost:3000/', // If not specified, defaults to the current page
+      // redirectUrl: 'http://localhost:3000/', // If not specified, defaults to the current page
       responseType: 'token id_token',
     }
   }
