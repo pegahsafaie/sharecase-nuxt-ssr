@@ -10,7 +10,7 @@ const lock = new Auth0Lock(
       logo: "http://clipart-library.com/images_k/ladybug-transparent-background/ladybug-transparent-background-2.png",
     },
     auth: {
-      redirectUrl: 'https://share-cafe.herokuapp.com/', // If not specified, defaults to the current page
+      redirectUrl: process.env.AUTH0_REDIRECT, // If not specified, defaults to the current page
       responseType: 'token id_token',
     }
   }
