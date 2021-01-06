@@ -44,6 +44,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/dotenv',
     '@nuxt/typescript-build',
     ['@nuxtjs/fontawesome',{
       component: 'fa',
@@ -77,7 +78,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/dotenv',
     "@nuxtjs/apollo",
     ['cookie-universal-nuxt', { alias: 'cookiz' }]
   ],
