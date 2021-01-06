@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import toggle from './toggle'
+import toggle from './Toggle'
 import avatar from './Avatar';
 export default {
   name: 'Toolbar',
