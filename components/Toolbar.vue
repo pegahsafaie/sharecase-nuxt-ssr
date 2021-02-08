@@ -134,6 +134,7 @@ export default {
     src: url('~assets/fonts/Ballet.ttf');
     font-weight: normal;
     font-style: normal;
+    font-display: swap
   }
 
   .ballet {
