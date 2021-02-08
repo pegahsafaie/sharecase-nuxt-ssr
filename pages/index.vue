@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-5 mb-4 text-center">
-          <img width="400" height="300" src="https://res.cloudinary.com/pegah/image/upload/q_auto/v1609248888/Grandmas.png">
+          <img width="400" height="300" src="https://res.cloudinary.com/pegah/image/upload/q_auto,f_jpg/v1609248888/Grandmas.png">
         </div>
         <div class="col-lg-7">
           <h2>{{$t('goal_title')}}</h2>
