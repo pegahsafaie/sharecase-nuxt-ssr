@@ -127,7 +127,7 @@
      <div class="card testimonial-card">
       <div class="card-up deep-purple lighten-2"></div>
        <!--Avatar-->
-       <div width="160" height="160" class="avatar mx-auto white"><img src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Doris.jpg"
+       <div class="avatar mx-auto white"><img width="160" height="160" src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Doris.jpg"
            alt="mx-auto white" class="img-fluid rounded-circle">
        </div>
 
@@ -152,7 +152,7 @@
 
       <div class="card-up blue lighten-2"></div>
        <!--Avatar-->
-       <div width="160" height="160" class="avatar mx-auto white"><img src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Pegah.jpg"
+       <div class="avatar mx-auto white"><img width="160" height="160" src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Pegah.jpg"
            alt="mx-auto white" class="img-fluid rounded-circle">
        </div>
 
