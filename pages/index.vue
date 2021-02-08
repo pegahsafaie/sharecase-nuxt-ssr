@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-5 mb-4 text-center">
-          <img src="https://res.cloudinary.com/pegah/image/upload/q_auto/v1609248888/Grandmas.png">
+          <img width="400" height="300" src="https://res.cloudinary.com/pegah/image/upload/q_auto/v1609248888/Grandmas.png">
         </div>
         <div class="col-lg-7">
           <h2>{{$t('goal_title')}}</h2>
@@ -127,7 +127,7 @@
      <div class="card testimonial-card">
       <div class="card-up deep-purple lighten-2"></div>
        <!--Avatar-->
-       <div class="avatar mx-auto white"><img src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Doris.jpg"
+       <div width="160" height="160" class="avatar mx-auto white"><img src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Doris.jpg"
            alt="mx-auto white" class="img-fluid rounded-circle">
        </div>
 
@@ -152,7 +152,7 @@
 
       <div class="card-up blue lighten-2"></div>
        <!--Avatar-->
-       <div class="avatar mx-auto white"><img src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Pegah.jpg"
+       <div width="160" height="160" class="avatar mx-auto white"><img src="https://res.cloudinary.com/pegah/image/upload/w_200,h_200,c_fill,g_face,r_max,q_auto/v1609247393/Pegah.jpg"
            alt="mx-auto white" class="img-fluid rounded-circle">
        </div>
 
