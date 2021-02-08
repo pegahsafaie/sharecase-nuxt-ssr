@@ -78,7 +78,8 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     "@nuxtjs/apollo",
-    ['cookie-universal-nuxt', { alias: 'cookiz' }]
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    '@nuxtjs/pwa'
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)

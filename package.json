@@ -15,6 +15,7 @@
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/pwa": "^3.3.5",
     "auth0-lock": "^11.27.1",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.6.5",
