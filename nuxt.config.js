@@ -136,5 +136,11 @@ export default {
     clientConfigs: {
       default: '~/plugins/alternative-apollo-config.js',
     }
-  }
+  },
+
+  pwa: {
+    meta: {
+      theme_color: '#F8F8F8',
+    }
+  }  
 }
