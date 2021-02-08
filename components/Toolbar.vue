@@ -3,7 +3,6 @@
   <v-toolbar fixed height="50px">
       <toggle v-model="language" @change="changeLanguage"/>
       <v-spacer></v-spacer>
-      <!--<div class="icons ladybug" v-html="require('~/assets/icons/ladybug.svg')"></div>-->
       <v-toolbar-title @click="goHome()" class="ballet bigger">
         <span style="color:red">S</span><span>HARE </span><span style="color:red">C</span><span>AFE</span>
       </v-toolbar-title>
@@ -113,20 +112,6 @@ export default {
 
   .icons {
     width: 24px;
-  }
-
-  .ladybug {
-    offset-path: path('M 10 30 C 40 10, 65 10, 95 30 S 150 10, 180 10');
-    animation: motionpathguy 10s ease-in infinite both;
-  }
-
-  @keyframes motionpathguy {
-    from {
-      offset-distance: 0%;
-    }
-    to {
-      offset-distance: 100%;
-    }
   }
 
   @font-face {
