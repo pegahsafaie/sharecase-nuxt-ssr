@@ -245,7 +245,7 @@ export default ({
     width: 100%;
     height: auto;
     margin-bottom: 2rem;
-    background: url('https://res.cloudinary.com/pegah/image/upload/q_auto/v1609413219/bg-mastheahd.jpg');
+    background: url('https://res.cloudinary.com/pegah/image/upload/q_auto:low/v1609413219/bg-mastheahd.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
