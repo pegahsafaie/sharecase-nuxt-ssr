@@ -7,7 +7,7 @@ const lock = new Auth0Lock(
       title: "Share Cafe",
     },
     theme: {
-      logo: "http://clipart-library.com/images_k/ladybug-transparent-background/ladybug-transparent-background-2.png",
+      logo: "https://res.cloudinary.com/pegah/image/upload/q_auto, f_jpg/v1612819572/ladybug.png",
     },
     auth: {
       redirectUrl: process.env.AUTH0_REDIRECT, // If not specified, defaults to the current page
