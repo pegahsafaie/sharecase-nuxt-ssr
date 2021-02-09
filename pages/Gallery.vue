@@ -98,17 +98,15 @@ export default ({
   },
   middleware: 'auth',
   asyncData(context) {
-    if(context.$cookiz.get('token')) {
-      const client = context.app.apolloProvider.defaultClient
-      const variables = getInviteVariables(context.$cookiz.get('user'),context.route.query);
-      const query = {
-        query: getInvites,
-        variables,
-      }
-      return client.query(query).then(({ data }) => {
-        return { invites: data.Invites };
-      })
+    const client = context.app.apolloProvider.defaultClient
+    const variables = getInviteVariables(context.$cookiz.get('user'),context.route.query);
+    const query = {
+      query: getInvites,
+      variables,
     }
+    return client.query(query).then(({ data }) => {
+      return { invites: data.Invites };
+    })
   },
   async mounted () {
     this.selectedAddress = this.$route.query;

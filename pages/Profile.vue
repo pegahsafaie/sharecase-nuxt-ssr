@@ -48,7 +48,7 @@ export default {
         return { Invites: data.Invites };
       })
     } else {
-      console.log('invites: static rendering || ssr rendering and token not available');
+      console.log('Profile Fetch: static rendering || ssr rendering and token not available');
     }
   },
   /*apollo: {

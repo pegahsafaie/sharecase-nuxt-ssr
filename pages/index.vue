@@ -236,16 +236,11 @@ export default ({
       last: 4
       }
     };
-    if(context.$cookiz.get('token')) {
-      console.log('last invites: ssr rendering + token available');
-      return client.query(query)
-        .then(({ data }) => {
-        //  Nuxt.js will automatically merge the returned object with the component data
-        return { Invites: data.Invites };
-      })
-    } else {
-      console.log('last invites: static rendering || ssr rendering and token not available');
-    }
+    return client.query(query)
+      .then(({ data }) => {
+      //  Nuxt.js will automatically merge the returned object with the component data
+      return { Invites: data.Invites };
+    })
   },
   /*apollo: {
     Invites: {
