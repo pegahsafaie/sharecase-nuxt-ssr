@@ -260,7 +260,7 @@ export default ({
       this.context = addressObject;
     },
     squarePhoto(photoUrl) {
-      return photoUrl.replace('/upload/', '/upload/w_250,ar_1:1,c_fill,g_auto/');
+      return photoUrl.replace('/upload/', '/upload/w_250,ar_1:1,c_fill,g_auto/').replace('http', 'https');
     }
   }
 })
