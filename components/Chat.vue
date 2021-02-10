@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import beautifulChat from 'vue-beautiful-chat'
 import avatar from './Avatar';
 import CloseIcon from '~/assets/images/close-icon.png'
 import OpenIcon from '~/assets/images/open-chat.png'
@@ -92,7 +93,8 @@ export default {
     }
   },
   components: {
-    avatar
+    avatar,
+    'beautiful-chat': beautiful-chat
   },
   computed: {
     messageList() {

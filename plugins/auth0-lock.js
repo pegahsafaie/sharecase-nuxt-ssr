@@ -41,7 +41,7 @@ export default (ctx, inject) => {
     checkSession (options) {
       return new Promise((resolve, reject) => {
         lock.checkSession(options || {}, (err, authResult) => {
-          if (err || !authResult) return reject(err || new Error('No auth result'))
+          if (err || !authResult) return reject(err)
 
           resolve(authResult)
         })

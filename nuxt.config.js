@@ -35,7 +35,7 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/auth0-lock.js', ssr: false },    
-    { src: '~/plugins/vue-beautiful-chat.js', ssr: false },    
+    // { src: '~/plugins/vue-beautiful-chat.js', ssr: false },    Adding this as plugin increase the page initial load time
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -98,9 +98,9 @@ export default {
           success: colors.green.accent3
         }
       }
-    }, defaultAssets: {
-      icons: 'mdi',
-    }
+    }, 
+    defaultAssets: false,
+    treeShake: true,
   },
 
   fontawesome: {
