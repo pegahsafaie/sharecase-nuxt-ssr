@@ -94,7 +94,7 @@ export default {
   },
   components: {
     avatar,
-    'beautiful-chat': beautiful-chat
+    'beautiful-chat': beautifulChat
   },
   computed: {
     messageList() {
